@@ -19,9 +19,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 	devenv.vm.provision "chef_solo" do |chef|
 	  chef_common(chef)
-	  chef.add_recipe("apt")
-	  chef.add_recipe("git")
-	  chef.add_recipe("java")
 	end
 
 #	devenv.vm.provision "file", source: "gerrit.war", destination: "gerrit.war"
