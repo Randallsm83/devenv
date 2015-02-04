@@ -5,7 +5,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 def chef_common(chef)
   chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
-  chef.data_bags_path = "databags"
+  chef.data_bags_path = "data_bags"
   chef.roles_path = "roles"
 end
 
