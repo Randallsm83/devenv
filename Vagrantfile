@@ -21,6 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 	workstation.vm.provision "chef_solo" do |chef|
 	  chef_common(chef)
+	  chef.add_recipe("workstation")
 	end
 
     workstation.vm.network "forwarded_port", guest: 80, host: 8081, host_ip: "192.168.10.10"
