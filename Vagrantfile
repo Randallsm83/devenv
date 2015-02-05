@@ -13,20 +13,20 @@ end
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Setup workstation environment
-  config.vm.define "workstation" do |workstation|
-
-    workstation.vm.box = "ubuntu/trusty64"
-	workstation.vm.hostname = "workstation"
-	workstation.vm.synced_folder "~/dotfiles/", "/home/vagrant/dotfiles"
-
-	workstation.vm.provision "chef_solo" do |chef|
-	  chef_common(chef)
-	  chef.add_recipe("workstation")
-	end
-
-    workstation.vm.network "forwarded_port", guest: 80, host: 8081, host_ip: "192.168.10.10"
-	workstation.vm.network "private_network", ip: "192.168.10.10"
-  end
+#  config.vm.define "workstation" do |workstation|
+#
+#    workstation.vm.box = "ubuntu/trusty64"
+#	workstation.vm.hostname = "workstation"
+#	workstation.vm.synced_folder "~/dotfiles/", "/home/vagrant/dotfiles"
+#
+#	workstation.vm.provision "chef_solo" do |chef|
+#	  chef_common(chef)
+#	  chef.add_recipe("workstation")
+#	end
+#
+#    workstation.vm.network "forwarded_port", guest: 80, host: 8081, host_ip: "192.168.10.10"
+#	workstation.vm.network "private_network", ip: "192.168.10.10"
+#  end
 
   # Setup CI environment with gerrit and jenkins
   config.vm.define "ci" do |ci|

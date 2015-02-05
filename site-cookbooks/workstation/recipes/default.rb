@@ -16,3 +16,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+package 'git'
+package 'zsh'
+
+execute "set zsh as default shell" do
+	  command "chsh -s $(which zsh) vagrant"
+end
+
+if Dir.exist? "/home/vagrant/dotfiles"
+	execute "setup dotfiles" do
+		  command "su -c 'cd /home/vagrant/dotfiles && ./.make.sh' vagrant"
+	end
+end
